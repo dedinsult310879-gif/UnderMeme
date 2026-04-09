@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnderMeme</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game" aria-label="UnderMeme">
+    <section id="menuScene" class="scene scene-active">
+      <div class="menu-scene">
+        <div class="menu-stars"></div>
+        <div class="title-wrap">
+          <h1 class="game-title">UNDERMEME</h1>
+          <p class="subtitle">a meme rpg inspired by undertale</p>
+        </div>
+        <div class="menu-panel">
+          <div class="menu-statline">
+            <span>KODYS</span>
+            <span>LV 2</span>
+            <span>MEME ROUTE</span>
+          </div>
+          <div id="mainMenu" class="main-menu">
+            <button class="title-option active" data-menu="start">START</button>
+            <button class="title-option" data-menu="map">MAP</button>
+            <button class="title-option" data-menu="reset">RESET</button>
+          </div>
+          <div class="difficulty-panel">
+            <div class="difficulty-label">DIFFICULTY</div>
+            <div id="difficultyMenu" class="difficulty-menu">
+              <button class="difficulty-option" data-difficulty="super_easy">SUPER EASY</button>
+              <button class="difficulty-option active" data-difficulty="easy">EASY</button>
+              <button class="difficulty-option" data-difficulty="normal">NORMAL</button>
+              <button class="difficulty-option" data-difficulty="hard">HARD</button>
+            </div>
+          </div>
+          <div id="menuInfo" class="menu-info">Нажми Z, чтобы начать путь.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="worldScene" class="scene">
+      <div class="world-screen">
+        <div id="corridorTrack" class="corridor-track">
+          <div class="corridor-floor"></div>
+          <div class="corridor-wall corridor-wall-top"></div>
+          <div class="corridor-wall corridor-wall-bottom"></div>
+          <div class="corridor-pillar pillar-a"></div>
+          <div class="corridor-pillar pillar-b"></div>
+          <div class="corridor-pillar pillar-c"></div>
+          <div class="corridor-pillar pillar-d"></div>
+          <div class="corridor-pillar pillar-e"></div>
+          <div class="corridor-pillar pillar-f"></div>
+          <div class="corridor-pillar pillar-g"></div>
+          <div class="corridor-pillar pillar-h"></div>
+          <div class="corridor-pillar pillar-i"></div>
+
+          <div id="player" class="human" aria-label="Игрок">
+            <span class="pixel head"></span>
+            <span class="pixel hair"></span>
+            <span class="pixel eye eye-left"></span>
+            <span class="pixel eye eye-right"></span>
+            <span class="pixel body"></span>
+            <span class="pixel stripe stripe-top"></span>
+            <span class="pixel stripe stripe-mid"></span>
+            <span class="pixel arm arm-left"></span>
+            <span class="pixel arm arm-right"></span>
+            <span class="pixel leg leg-left"></span>
+            <span class="pixel leg leg-right"></span>
+          </div>
+
+          <div id="worldEnemy" class="world-enemy hidden">
+            <img id="worldEnemySprite" src="zaichik.jpg" alt="Enemy">
+          </div>
+        </div>
+        <div id="visionMask" class="vision-mask"></div>
+        <div class="world-hint">X: menu</div>
+      </div>
+    </section>
+
+    <section id="battleScene" class="scene">
+      <div class="battle-screen">
+        <div class="battle-top">
+          <div class="battle-left">
+            <div class="window window-left"></div>
+            <div class="enemy-meta">
+              <div id="enemyStage" class="enemy-stage"></div>
+            </div>
+          </div>
+          <div class="battle-right">
+            <div id="enemyPortrait" class="enemy-portrait"></div>
+          </div>
+        </div>
+        <div class="bullet-box">
+          <canvas id="battleCanvas" width="320" height="210"></canvas>
+        </div>
+        <div class="hud-row">
+          <div class="stats">
+            <span id="nameLabel">KODYS</span>
+            <span>LV 2</span>
+            <span>HP</span>
+            <div class="hp-wrap">
+              <div class="hp-base"></div>
+              <div id="hpFill" class="hp-fill"></div>
+            </div>
+            <span id="hpText">20 / 20</span>
+          </div>
+        </div>
+        <div class="dialog-box">
+          <div id="dialogueText" class="dialogue-text">* Иди вперёд.</div>
+        </div>
+        <nav class="menu">
+          <button class="menu-btn active" data-action="fight">FIGHT</button>
+          <button class="menu-btn" data-action="act">ACT</button>
+          <button class="menu-btn" data-action="item">ITEM</button>
+          <button class="menu-btn" data-action="mercy">MERCY</button>
+        </nav>
+        <div id="attackMeter" class="attack-meter hidden">
+          <div class="attack-strip"></div>
+          <div id="attackCursor" class="attack-cursor"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <audio id="zaichikSound" src="zaichikzvuk.mp3" preload="auto"></audio>
+  <audio id="mellstroySound" src="plakiplaki.mp3" preload="auto"></audio>
+  <audio id="yaponecSound" src="yaponec.ogg" preload="auto"></audio>
+  <audio id="sixsevenSound" src="sixseven.mp3" preload="auto"></audio>
+  <audio id="ambientSound" src="ambient.mp3" preload="auto" loop></audio>
+  <audio id="stepSound" src="step.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
